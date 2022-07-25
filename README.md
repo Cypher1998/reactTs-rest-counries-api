@@ -17,8 +17,8 @@ Launches the test runner in the interactive watch mode.\
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com).
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com).
+- Solution URL: [GitHub Repo URL](https://github.com/Cypher1998/reactTs-rest-counries-api).
+- Live Site URL: [REST Countries API](https://react-ts-rest-counries-api.vercel.app/).
 
 ### Built with
 
