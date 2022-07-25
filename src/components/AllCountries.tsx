@@ -15,7 +15,11 @@ const AllCountries = ({ query }: AllCountriesProps) => {
 	) as CountriesContextTypes;
 
 	useEffect(() => {
-		fetchAllCountries();
+		if (allCountries === null) {
+			fetchAllCountries();
+		} else {
+			return;
+		}
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -28,16 +32,21 @@ const AllCountries = ({ query }: AllCountriesProps) => {
 		<section>
 			{loading ? (
 				<Spinner />
-			) : allCountries && allCountries?.length > 0 ? (
-				<div className="allCountries px-4 md:px-0 grid gap-10 items-stretch lg:gap-12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+			) : error ? (
+				<ErrorInfo error={error} />
+			) : filteredCountries && filteredCountries?.length > 0 ? (
+				<div
+					className="allCountries px-4 md:px-0 grid gap-10 items-stretch lg:gap-12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+					data-testid="countriesDiv"
+				>
 					{filteredCountries?.map((country) => (
 						<CountryList key={country.flags.png} country={country} />
 					))}
 				</div>
-			) : filteredCountries?.length === 0 ? (
-				<p className="text-lg">No Countries found...</p>
 			) : (
-				error !== null && <ErrorInfo error={error} />
+				filteredCountries?.length === 0 && (
+					<p className="text-lg">No Countries found...</p>
+				)
 			)}
 		</section>
 	);

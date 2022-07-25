@@ -21,14 +21,12 @@ const SearchCountry = ({ text, handleChange }: SearchCountryProps) => {
 				<BiSearch size={21} />
 			</span>
 			<input
-				data-testid="inputText"
 				type="text"
 				placeholder="Search for a country..."
 				className={`w-full py-4 px-14  outline-none rounded-md ${
 					theme && 'bg-darkModeElement'
 				}`}
 				value={text}
-				// value="nigeria"
 				onChange={handleChange}
 			/>
 		</div>

@@ -8,7 +8,7 @@ import {
 } from './countriesTypes';
 import axios from 'axios';
 
-const apiUrl = axios.create({
+export const apiUrl = axios.create({
 	baseURL: 'https://restcountries.com/v3.1',
 });
 
@@ -27,7 +27,7 @@ export const CountryProvider = ({ children }: CountriesContextProps) => {
 	const fetchAllCountries = async () => {
 		dispatch({ type: countryTypes.loading });
 		try {
-			const { data } = await apiUrl('/all');
+			const { data } = await apiUrl.get('/all');
 			dispatch({ type: countryTypes.fetchSuccess, payload: data });
 		} catch (error: any) {
 			const { message } = error;

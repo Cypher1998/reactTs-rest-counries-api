@@ -3,14 +3,9 @@ import React from 'react';
 export interface CountriesContextTypes {
 	loading: boolean;
 	error: null | string;
-	// allCountries: null | any[];
 	allCountries: null | { [key: string]: any }[];
-	// searchTextCountries: null | { [key: string]: any }[];
-	// text: string;
 	singleCountry: null | { [key: string]: any }[];
 	fetchAllCountries: () => void;
-	// searchCountries: (text: string) => void;
-	// handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	fetchSingleCountry: (text: string) => void;
 	fetchAlphaCountry: (text: string) => void;
 	filterRegionCountries: (text: string) => void;

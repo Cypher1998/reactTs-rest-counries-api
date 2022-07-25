@@ -13,6 +13,7 @@ export const countryReducer = (
 			return {
 				...state,
 				loading: true,
+				singleCountry: null,
 			};
 
 		case countryTypes.fetchSuccess:
@@ -20,6 +21,7 @@ export const countryReducer = (
 				...state,
 				allCountries: action.payload,
 				loading: false,
+				error: null,
 			};
 
 		case countryTypes.fetchError:
@@ -34,6 +36,7 @@ export const countryReducer = (
 				...state,
 				loading: false,
 				singleCountry: action.payload,
+				error: null,
 			};
 
 		case countryTypes.fetchAlphaContry:
@@ -41,6 +44,7 @@ export const countryReducer = (
 				...state,
 				loading: false,
 				singleCountry: action.payload,
+				error: null,
 			};
 
 		case countryTypes.filterRegionCountries:
@@ -48,6 +52,7 @@ export const countryReducer = (
 				...state,
 				loading: false,
 				allCountries: action.payload,
+				error: null,
 			};
 
 		default:

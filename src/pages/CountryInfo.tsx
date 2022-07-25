@@ -43,7 +43,7 @@ const CountryInfo = () => {
 		>
 			<div className="appContainer singleCountry md:px-12 lg:px-16">
 				<button
-					onClick={() => navigate('/')}
+					onClick={() => navigate(-1)}
 					className={`capitalize py-3 px-10 rounded-md flex items-center space-x-3 shadow-lg ring-2 ring-darkModeElement/5 ${
 						theme
 							? 'bg-darkModeElement text-darkModeText hover:bg-darkModeText hover:text-lightModeText'

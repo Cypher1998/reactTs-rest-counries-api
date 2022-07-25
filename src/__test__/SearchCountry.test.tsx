@@ -27,7 +27,7 @@ describe('testing the input component', () => {
 
 	test('if user is ableto type', async () => {
 		render(<MockSearchCountry text="nigeria" />);
-		const inputElement = await screen.findByTestId('inputText');
+		const inputElement = screen.getByRole('textbox');
 		expect(inputElement).toHaveValue('nigeria');
 	});
 });

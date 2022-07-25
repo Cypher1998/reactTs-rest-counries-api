@@ -7,7 +7,9 @@ import { ThemeContextTypes } from '../context/themecontext/ThemeTypes';
 
 const FilterCountry = () => {
 	const [showFilterTable, setShowFilterTable] = useState(false);
+
 	const { theme } = useContext(ThemeContext) as ThemeContextTypes;
+
 	const { filterRegionCountries, fetchAllCountries, allCountries } = useContext(
 		CountryContext
 	) as CountriesContextTypes;
