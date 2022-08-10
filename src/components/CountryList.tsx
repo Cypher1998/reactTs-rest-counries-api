@@ -15,7 +15,7 @@ const CountryList = ({ country }: CountryListProps) => {
 	return (
 		<Link to={`/name/${formatLinkText(name.official)}`}>
 			<div
-				className={`country space-y-4 rounded-md shadow-md  ${
+				className={`country space-y-5 rounded-md shadow-md ${
 					theme ? 'bg-darkModeElement' : 'bg-darkModeText'
 				}`}
 			>
@@ -26,8 +26,8 @@ const CountryList = ({ country }: CountryListProps) => {
 						className="w-full rounded-t-md"
 					/>
 				</div>
-				<div className="px-4 space-y-1 pb-4">
-					<h3 className="font-bold mb-2">{name.common}</h3>
+				<div className="px-5 space-y-1 pb-6">
+					<h3 className="font-bold mb-2 md:text-lg">{name.common}</h3>
 					<p className="font-semibold">
 						Population:{' '}
 						<span className="font-light">

@@ -36,7 +36,7 @@ const AllCountries = ({ query }: AllCountriesProps) => {
 				<ErrorInfo error={error} />
 			) : filteredCountries && filteredCountries?.length > 0 ? (
 				<div
-					className="allCountries px-4 md:px-0 grid gap-12 items-stretch w-11/12 sm:w-10/12 mx-auto md:gap-14 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:w-full"
+					className="allCountries px-4 md:px-0 grid gap-16 items-stretch w-11/12  mx-auto md:grid-cols-2 lg:grid-cols-3 lg:w-full lg:gap-14 xl:grid-cols-4 "
 					data-testid="countriesDiv"
 				>
 					{filteredCountries?.map((country) => (

@@ -7,7 +7,7 @@ interface ErrorProps {
 const ErrorInfo = ({ error }: ErrorProps) => {
 	const location = useLocation();
 	return (
-		<div className="space-y-2">
+		<div className="space-y-2 mt-6">
 			{error === 'Network Error' ? (
 				<>
 					<p className="text-lg">

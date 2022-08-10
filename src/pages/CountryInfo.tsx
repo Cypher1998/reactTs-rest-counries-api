@@ -42,13 +42,13 @@ const CountryInfo = () => {
 				: 'bg-lightModeBg text-lightModeText'
 		}`}
 		>
-			<div className="appContainer singleCountry md:px-12 lg:px-16">
+			<div className="appContainer singleCountry md:px-8 lg:px-12">
 				<button
 					onClick={() => navigate(-1)}
-					className={`capitalize py-2 px-5 md:py-3 md:px-8 rounded-md flex items-center space-x-3 shadow-lg ring-2 ring-darkModeElement/5 ${
+					className={`capitalize mx-2 py-2 px-5 md:py-3 md:px-8 rounded-md flex items-center space-x-3 shadow-lg ring-2 md:mx-0 ${
 						theme
-							? 'bg-darkModeElement text-darkModeText hover:bg-darkModeText hover:text-lightModeText'
-							: 'bg-darkModeText text-lightModeText hover:bg-darkModeElement hover:text-darkModeText '
+							? 'bg-darkModeElement text-darkModeText ring-darkModeText/20 hover:bg-darkModeText hover:text-lightModeText'
+							: 'bg-darkModeText text-lightModeText ring-darkModeElement/5 hover:bg-darkModeElement hover:text-darkModeText '
 					}`}
 				>
 					<BsArrowLeft size={20} />
@@ -77,12 +77,12 @@ const CountryInfo = () => {
 						return (
 							<div
 								key={name.common}
-								className="countryDetails mt-10 grid lg:grid-cols-2 gap-10 lg:gap-20"
+								className="countryDetails mt-10 px-2 grid lg:grid-cols-2 gap-10 md:px-0 lg:gap-20"
 							>
 								<img
 									src={flags.png}
 									alt={name.common}
-									className="rounded-sm w-96 h-auto md:h-48  lg:w-full"
+									className="rounded-sm w-96 h-auto md:h-48 lg:h-56 xl:h-64 lg:w-full"
 								/>
 								<div className="space-y-6">
 									<h3 className="font-extrabold text-2xl">{name.common}</h3>
@@ -94,7 +94,9 @@ const CountryInfo = () => {
 											</p>
 											<p className="font-bold">
 												Population:{' '}
-												<span className="font-normal">{population}</span>
+												<span className="font-normal">
+													{population.toLocaleString('en-us')}
+												</span>
 											</p>
 											<p className="font-bold">
 												Region: <span className="font-normal">{region}</span>

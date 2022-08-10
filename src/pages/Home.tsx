@@ -25,13 +25,13 @@ const Home = () => {
 				: 'bg-lightModeBg text-lightModeText'
 		}`}
 		>
-			<section className="appContainer homeSection md:px-8 lg:px-12 flex flex-col space-y-8 lg:space-y-10">
+			<div className="appContainer homeSection md:px-8 lg:px-12 flex flex-col space-y-8 lg:space-y-10">
 				<div className="flex flex-col items-start space-y-4 md:space-y-0 md:flex-row md:justify-between">
 					<SearchCountry text={text} handleChange={handleChange} />
 					<FilterCountry />
 				</div>
 				<AllCountries query={query} />
-			</section>
+			</div>
 		</main>
 	);
 };

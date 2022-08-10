@@ -26,9 +26,9 @@ const Navbar = () => {
 						className="flex space-x-2 items-center cursor-pointer lg:text-lg"
 						onClick={toggleTheme}
 					>
-						<span>{theme ? <BsMoonFill /> : <BsSun />}</span>
+						<span>{theme ? <BsSun /> : <BsMoonFill />}</span>
 
-						<span>{theme ? 'Dark Mode' : 'Light Mode'}</span>
+						<span>{theme ? 'Light Mode' : 'Dark Mode'}</span>
 					</p>
 				</div>
 			</nav>

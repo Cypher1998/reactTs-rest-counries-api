@@ -9,7 +9,7 @@ body {
 }
 
 .appContainer {
-	max-width: 1264px;
+	max-width: 1296px;
 	padding: 0 1rem;
 	margin: auto;
 }
@@ -53,42 +53,42 @@ main {
 }
 
 .countryInfo img {
-	height: 8rem;
+	height: 9rem;
 }
 
 @media (min-width: 376px) {
 	.countryInfo img {
-		height: 10rem;
-	}
-}
-
-@media (min-width: 465px) {
-	.countryInfo img {
-		height: 10.5rem;
+		height: 11rem;
 	}
 }
 
 @media (min-width: 640px) {
 	.countryInfo img {
-		height: 7.25rem;
+		height: 9rem;
 	}
 }
 
 @media (min-width: 748px) {
 	.countryInfo img {
-		height: 8.75rem;
+		height: 10rem;
 	}
 }
 
 @media (min-width: 847px) {
 	.countryInfo img {
-		height: 6.75rem;
+		height: 8rem;
 	}
 }
 
 @media (min-width: 960px) {
 	.countryInfo img {
-		height: 7.25rem;
+		height: 7.5rem;
+	}
+}
+
+@media (min-width: 1064px) {
+	.countryInfo img {
+		height: 8.5rem;
 	}
 }
 
