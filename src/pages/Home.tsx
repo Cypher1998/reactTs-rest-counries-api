@@ -2,7 +2,6 @@ import React, { useContext, useState, useTransition } from 'react';
 import ThemeContext from '../context/themecontext/themeContext';
 import { ThemeContextTypes } from '../context/themecontext/ThemeTypes';
 import AllCountries from '../components/AllCountries';
-// import SearchFilter from '../components/SearchFilter';
 import SearchCountry from '../components/SearchCountry';
 import FilterCountry from '../components/FilterCountry';
 
@@ -19,15 +18,15 @@ const Home = () => {
 
 	return (
 		<main
-			className={`shadow-inner py-14 md:pt-20
+			className={`shadow-inner pt-24 pb-20 md:pt-28
     ${
 			theme
 				? 'bg-darkModeBg text-darkModeText'
 				: 'bg-lightModeBg text-lightModeText'
 		}`}
 		>
-			<section className="appContainer md:px-12 lg:px-16">
-				<div className="py-10 flex flex-col items-start space-y-6 md:space-y-0 md:flex-row md:justify-between">
+			<section className="appContainer homeSection md:px-8 lg:px-12 flex flex-col space-y-8 lg:space-y-10">
+				<div className="flex flex-col items-start space-y-4 md:space-y-0 md:flex-row md:justify-between">
 					<SearchCountry text={text} handleChange={handleChange} />
 					<FilterCountry />
 				</div>

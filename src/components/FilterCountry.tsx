@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
+import { filterTexts } from '../utils/filterTexts';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import CountryContext from '../context/countriescontext/countriesContext';
 import { CountriesContextTypes } from '../context/countriescontext/countriesTypes';
@@ -41,7 +42,7 @@ const FilterCountry = () => {
 	return (
 		<div className="filterDiv space-y-1 w-56 relative">
 			<p
-				className={`flex items-center justify-between border-2 cursor-pointer py-3 px-5 rounded-lg font-semibold ${
+				className={`flex items-center justify-between border-2 cursor-pointer py-3 px-5 rounded-lg font-semibold hover:border-slate-300 ${
 					theme
 						? 'bg-darkModeElement border-lightModeInput/5'
 						: 'bg-darkModeText border-lightModeInput/5'
@@ -67,41 +68,20 @@ const FilterCountry = () => {
 					} rounded-lg p-2`}
 				>
 					<p
-						className="p-2 cursor-pointer hover:bg-lightModeInput/50  rounded-md"
+						className="p-2 cursor-pointer hover:bg-lightModeInput/50 rounded-md"
 						onClick={handleFetch}
 					>
 						All Regions
 					</p>
-					<p
-						className="p-2 cursor-pointer hover:bg-lightModeInput/50  rounded-md"
-						onClick={() => filterRegionCountries('Africa')}
-					>
-						Africa
-					</p>
-					<p
-						className="p-2 cursor-pointer hover:bg-lightModeInput/50  rounded-md"
-						onClick={() => filterRegionCountries('Asia')}
-					>
-						Asia
-					</p>
-					<p
-						className="p-2 cursor-pointer hover:bg-lightModeInput/50  rounded-md"
-						onClick={() => filterRegionCountries('America')}
-					>
-						America
-					</p>
-					<p
-						className="p-2 cursor-pointer hover:bg-lightModeInput/50 rounded-md"
-						onClick={() => filterRegionCountries('Europe')}
-					>
-						Europe
-					</p>
-					<p
-						className="p-2 cursor-pointer hover:bg-lightModeInput/50 rounded-md"
-						onClick={() => filterRegionCountries('Oceania')}
-					>
-						Oceania
-					</p>
+					{filterTexts.map((filterText) => (
+						<p
+							key={filterText}
+							className="p-2 cursor-pointer hover:bg-lightModeInput/50 rounded-md capitalize"
+							onClick={() => filterRegionCountries(filterText)}
+						>
+							{filterText}
+						</p>
+					))}
 				</div>
 			)}
 		</div>

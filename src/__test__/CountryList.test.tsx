@@ -3,6 +3,7 @@ import CountryList from '../components/CountryList';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '../context/themecontext/themeContext';
 import { data } from '../utils/variables';
+import { formatLinkText } from '../utils/filterTexts';
 
 const MockCountryList = () => {
 	return (
@@ -21,7 +22,7 @@ describe('test countryList component', () => {
 		const text = screen.getByText(/population/i);
 		expect(countryFlag).toHaveAttribute(
 			'href',
-			`/name/${data[0].name.official}`
+			`/name/${formatLinkText(data[0].name.official)}`
 		);
 		expect(text).toBeInTheDocument();
 	});

@@ -9,9 +9,16 @@ body {
 }
 
 .appContainer {
-	max-width: 1140px;
-	padding: 0 1.5rem;
+	max-width: 1264px;
+	padding: 0 1rem;
 	margin: auto;
+}
+
+@media (max-width: 464px) {
+	input {
+		padding-top: 0.85rem !important;
+		padding-bottom: 0.85rem !important;
+	}
 }
 
 header {
@@ -21,12 +28,6 @@ header {
 main {
 	min-height: 100vh;
 	font-size: 0.95rem;
-}
-
-@media (max-width: 365px) {
-	main {
-		padding-top: 5rem !important;
-	}
 }
 
 .spinnerDiv {
@@ -63,64 +64,48 @@ main {
 
 @media (min-width: 465px) {
 	.countryInfo img {
-		height: 7.25rem;
+		height: 10.5rem;
 	}
 }
 
 @media (min-width: 640px) {
 	.countryInfo img {
-		height: 6.25rem;
+		height: 7.25rem;
 	}
 }
 
 @media (min-width: 748px) {
 	.countryInfo img {
-		height: 6.5rem;
-	}
-}
-
-@media (min-width: 800px) {
-	.countryInfo img {
-		height: 7rem;
+		height: 8.75rem;
 	}
 }
 
 @media (min-width: 847px) {
 	.countryInfo img {
-		height: 5.75rem;
+		height: 6.75rem;
 	}
 }
 
 @media (min-width: 960px) {
 	.countryInfo img {
-		height: 6.5rem;
-	}
-}
-
-@media (max-width: 464px) {
-	.allCountries {
-		display: grid;
-		grid-template-columns: 1fr;
+		height: 7.25rem;
 	}
 }
 
 .country {
 	transition: transform 0.2s ease-in-out;
+	max-width: 368px;
 }
 
 .singleCountry button {
 	transition: background-color 0.25s ease-in-out, color 0.2s ease-in-out;
-	font-size: 1.05rem;
+	font-size: 1rem;
 }
 
-@media (max-width: 345px) {
-	.singleCountry {
-		padding-top: 2.5rem;
-	}
-
-	.singleCountry button {
-		padding: 0.5rem 1.5rem;
-		font-size: 1.02rem;
+@media (max-width: 329px) {
+	.singleCountry,
+	.homeSection {
+		padding-top: 2rem;
 	}
 }
 

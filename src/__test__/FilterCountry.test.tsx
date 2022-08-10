@@ -24,31 +24,38 @@ const MockFilterCountry = ({ value }: Props) => {
 };
 
 describe('test filter component', () => {
+	beforeEach(() => {
+		render(<MockFilterCountry value={valueSuccess} />);
+	});
+
 	test('if filter component renders', () => {
-		render(<MockFilterCountry value={valueSuccess} />);
-		const element = screen.getByText(/filter by region/i);
-		expect(element).toBeTruthy();
+		expect(screen.getByText(/filter by region/i)).toBeTruthy();
 	});
 
-	test('if regions table shows and hide', async () => {
-		render(<MockFilterCountry value={valueSuccess} />);
-		const element = screen.getByText(/filter by region/i);
-		userEvent.click(element);
-		const regions = screen.getByTestId('regionTable');
-		expect(regions.childElementCount).toEqual(6);
-		userEvent.click(element);
-		expect(regions).not.toBeVisible();
-	});
+	describe('test filter table', () => {
+		beforeEach(() => {
+			// get and click region container
+			userEvent.click(screen.getByText(/filter by region/i));
+		});
 
-	test("if clicking a region query's API", async () => {
-		render(<MockFilterCountry value={valueSuccess} />);
-		const element = screen.getByText(/filter by region/i);
-		userEvent.click(element);
-		const regionText = screen.getByText(/africa/i);
-		userEvent.click(regionText);
-		expect(valueSuccess.filterRegionCountries).toHaveBeenCalledTimes(1);
-		expect(valueSuccess.filterRegionCountries).toHaveBeenCalledWith(
-			`${regionText.textContent}`
-		);
+		test('if regions table contains 6 children', () => {
+			const regions = screen.getByTestId('regionTable');
+			expect(regions.childElementCount).toEqual(6);
+		});
+
+		it('region table should not be visible', () => {
+			userEvent.click(screen.getByText(/filter by region/i));
+			const region = screen.queryByTestId('regionTable');
+			expect(region).not.toBeInTheDocument();
+		});
+
+		test("if clicking a region query's API", async () => {
+			const regionText = screen.getByText(/africa/i);
+			userEvent.click(regionText);
+			expect(valueSuccess.filterRegionCountries).toHaveBeenCalledTimes(1);
+			expect(valueSuccess.filterRegionCountries).toHaveBeenCalledWith(
+				`${regionText.textContent}`
+			);
+		});
 	});
 });

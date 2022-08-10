@@ -40,7 +40,7 @@ const MockCountryInfo = ({ value }: Props) => {
 };
 
 describe('test countryInfo component', () => {
-	test('check component rendered show spinner while api is running', () => {
+	test('check if component rendered show spinner while api is running', () => {
 		render(<MockCountryInfo value={valueLoading} />);
 		const buttonElement = screen.getByRole('button', { name: /back/i });
 		const spinnerDiv = screen.getByTestId('spinner');

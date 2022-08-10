@@ -5,11 +5,7 @@ import { BsMoonFill, BsSun } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-	const { theme, setTheme } = useContext(ThemeContext) as ThemeContextTypes;
-
-	const changeTheme = () => {
-		setTheme((prevState) => !prevState);
-	};
+	const { theme, toggleTheme } = useContext(ThemeContext) as ThemeContextTypes;
 
 	return (
 		<header
@@ -20,34 +16,20 @@ const Navbar = () => {
 						: 'bg-darkModeText text-lightModeText'
 				}`}
 		>
-			<nav className="appContainer md:px-12 lg:px-16 xl:px-12">
-				<div className="flex justify-between items-center py-5 md:py-6">
-					<h3 className="font-extrabold text-lg">
+			<nav className="appContainer md:px-8 lg:px-12">
+				<div className="flex justify-between items-center py-6">
+					<h3 className="font-extrabold text-lg lg:text-xl">
 						<Link to="/">Where in the world?</Link>
 					</h3>
-					{theme ? (
-						<p
-							className="flex space-x-2 items-center cursor-pointer"
-							onClick={changeTheme}
-							data-testid="changeToLight"
-						>
-							<span>
-								<BsMoonFill />
-							</span>
-							<span>Dark Mode</span>
-						</p>
-					) : (
-						<p
-							className="flex space-x-2 items-center cursor-pointer"
-							onClick={changeTheme}
-							data-testid="changeToDark"
-						>
-							<span>
-								<BsSun />
-							</span>
-							<span>Light Mode</span>
-						</p>
-					)}
+
+					<p
+						className="flex space-x-2 items-center cursor-pointer lg:text-lg"
+						onClick={toggleTheme}
+					>
+						<span>{theme ? <BsMoonFill /> : <BsSun />}</span>
+
+						<span>{theme ? 'Dark Mode' : 'Light Mode'}</span>
+					</p>
 				</div>
 			</nav>
 		</header>

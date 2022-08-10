@@ -2,7 +2,7 @@ import React from 'react';
 
 export interface ThemeContextTypes {
 	theme: boolean;
-	setTheme: React.Dispatch<React.SetStateAction<boolean>>;
+	toggleTheme: () => void;
 }
 
 export type ThemeProviderProps = {

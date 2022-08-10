@@ -7,6 +7,7 @@ import ThemeContext from '../context/themecontext/themeContext';
 import { ThemeContextTypes } from '../context/themecontext/ThemeTypes';
 import Spinner from '../components/Spinner';
 import ErrorInfo from '../components/ErrorInfo';
+import { formatUrlText } from '../utils/filterTexts';
 
 const CountryInfo = () => {
 	const { country } = useParams();
@@ -26,7 +27,7 @@ const CountryInfo = () => {
 		if (location.pathname === `/alpha/${country}`) {
 			fetchAlphaCountry(country as string);
 		} else {
-			fetchSingleCountry(country as string);
+			fetchSingleCountry(formatUrlText(country as string));
 		}
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,7 +35,7 @@ const CountryInfo = () => {
 
 	return (
 		<main
-			className={`shadow-inner py-24 md:pt-28
+			className={`shadow-inner pt-24 pb-16 md:pt-28
 		${
 			theme
 				? 'bg-darkModeBg text-darkModeText'
@@ -44,7 +45,7 @@ const CountryInfo = () => {
 			<div className="appContainer singleCountry md:px-12 lg:px-16">
 				<button
 					onClick={() => navigate(-1)}
-					className={`capitalize py-3 px-10 rounded-md flex items-center space-x-3 shadow-lg ring-2 ring-darkModeElement/5 ${
+					className={`capitalize py-2 px-5 md:py-3 md:px-8 rounded-md flex items-center space-x-3 shadow-lg ring-2 ring-darkModeElement/5 ${
 						theme
 							? 'bg-darkModeElement text-darkModeText hover:bg-darkModeText hover:text-lightModeText'
 							: 'bg-darkModeText text-lightModeText hover:bg-darkModeElement hover:text-darkModeText '
@@ -76,12 +77,12 @@ const CountryInfo = () => {
 						return (
 							<div
 								key={name.common}
-								className="countryDetails mt-12 grid lg:grid-cols-2 gap-12 lg:gap-20"
+								className="countryDetails mt-10 grid lg:grid-cols-2 gap-10 lg:gap-20"
 							>
 								<img
 									src={flags.png}
 									alt={name.common}
-									className="rounded-sm w-96 lg:w-full h-auto"
+									className="rounded-sm w-96 h-auto md:h-48  lg:w-full"
 								/>
 								<div className="space-y-6">
 									<h3 className="font-extrabold text-2xl">{name.common}</h3>

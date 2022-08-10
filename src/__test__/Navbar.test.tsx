@@ -1,5 +1,5 @@
 import Navbar from '../components/Navbar';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { ThemeProvider } from '../context/themecontext/themeContext';
 import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
@@ -15,17 +15,19 @@ const MockNavbar = () => {
 };
 
 describe('test cases for navbar component', () => {
+	beforeEach(() => {
+		render(<MockNavbar />);
+	});
+
 	test('render default theme mode text', () => {
-		const component = render(<MockNavbar />);
-		const themeText = component.getByText(/light mode/i);
-		expect(themeText).toBeInTheDocument();
+		expect(screen.getByText(/light mode/i)).toBeInTheDocument();
 	});
 
 	test('switch to dark mode onclick', () => {
-		const { getByTestId } = render(<MockNavbar />);
-		const themeChanger = getByTestId('changeToDark');
-		userEvent.click(themeChanger);
-		const themeText = getByTestId('changeToLight');
-		expect(themeText).toBeInTheDocument();
+		const themeText = screen.getByText(/light mode/i);
+		userEvent.click(themeText);
+		const oldThemeText = screen.queryByText(/light mode/i);
+		expect(oldThemeText).not.toBeInTheDocument();
+		expect(screen.getByText(/dark mode/i)).toBeInTheDocument();
 	});
 });

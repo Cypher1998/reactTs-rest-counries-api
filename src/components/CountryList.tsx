@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import ThemeContext from '../context/themecontext/themeContext';
 import { ThemeContextTypes } from '../context/themecontext/ThemeTypes';
 import { Link } from 'react-router-dom';
+import { formatLinkText } from '../utils/filterTexts';
 
 interface CountryListProps {
 	country: { [key: string]: any };
@@ -12,9 +13,9 @@ const CountryList = ({ country }: CountryListProps) => {
 	const { theme } = useContext(ThemeContext) as ThemeContextTypes;
 
 	return (
-		<Link to={`/name/${name.official}`}>
+		<Link to={`/name/${formatLinkText(name.official)}`}>
 			<div
-				className={`country space-y-4 rounded-md shadow-md ${
+				className={`country space-y-4 rounded-md shadow-md  ${
 					theme ? 'bg-darkModeElement' : 'bg-darkModeText'
 				}`}
 			>

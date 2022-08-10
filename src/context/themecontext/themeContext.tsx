@@ -6,8 +6,12 @@ const ThemeContext = createContext<null | ThemeContextTypes>(null);
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 	const [theme, setTheme] = useState(false);
 
+	const toggleTheme = () => {
+		setTheme((prevState) => !prevState);
+	};
+
 	return (
-		<ThemeContext.Provider value={{ theme, setTheme }}>
+		<ThemeContext.Provider value={{ theme, toggleTheme }}>
 			{children}
 		</ThemeContext.Provider>
 	);

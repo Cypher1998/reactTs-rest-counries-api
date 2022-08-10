@@ -23,9 +23,9 @@ const SearchCountry = ({ text, handleChange }: SearchCountryProps) => {
 			<input
 				type="text"
 				placeholder="Search for a country..."
-				className={`w-full py-4 px-14  outline-none rounded-md ${
-					theme && 'bg-darkModeElement'
-				}`}
+				className={`w-full py-4 px-14 ${
+					theme ? 'outline-gray-600' : 'outline-gray-400'
+				} rounded-md ${theme && 'bg-darkModeElement'}`}
 				value={text}
 				onChange={handleChange}
 			/>
